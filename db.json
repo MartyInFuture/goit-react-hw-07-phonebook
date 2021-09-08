@@ -1,3 +1,14 @@
 {
-  "contacts": []
+  "contacts": [
+    {
+      "name": "user",
+      "phone": "123",
+      "id": "45cbbe50-b70e-413f-924a-b94174204fc1"
+    },
+    {
+      "name": "test",
+      "phone": "123",
+      "id": "0fa30c6e-75af-4c2f-895e-751a90c93912"
+    }
+  ]
 }
