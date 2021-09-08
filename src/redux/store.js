@@ -1,7 +1,7 @@
 import contactsReducer from './contacts/contacts-reducer';
 import { searchReducer } from './search/search-reducer';
 import { configureStore } from '@reduxjs/toolkit';
-import logger from 'redux-logger';
+// import logger from 'redux-logger';
 
 const store = configureStore({
   reducer: {
