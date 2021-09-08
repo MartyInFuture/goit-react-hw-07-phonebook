@@ -19,7 +19,7 @@ const isLoading = createReducer(false, {
 });
 
 const error = createReducer(null, {
-  [fetchContacts.fulfilled]: (_, action) => action.payload,
+  [fetchContacts.rejected]: (_, action) => action.payload,
   [fetchContacts.pending]: () => null,
 });
 

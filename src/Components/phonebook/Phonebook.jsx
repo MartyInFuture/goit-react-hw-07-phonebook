@@ -1,20 +1,24 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { PhonebookStyled } from './PhonebookStyled';
 import { v4 as uuidv4 } from 'uuid';
-import { contactsOperations } from '../../redux/contacts';
+import { contactsOperations, contactsSelectors } from '../../redux/contacts';
 
 const Phonebook = () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [inputId] = useState(uuidv4());
   const [phoneInputId] = useState(uuidv4());
+  const contacts = useSelector(contactsSelectors.getContacts);
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const body = { name, phone, id: uuidv4() };
-
+    if (contacts.find((item) => item.name === body.name)) {
+      alert(`${body.name} already exist`);
+      return false;
+    }
     dispatch(contactsOperations.postContact(body));
     setName('');
     setPhone('');
