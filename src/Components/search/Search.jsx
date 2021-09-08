@@ -1,12 +1,12 @@
 import { SearchStyled } from './SearchStyled';
 import { useSelector, useDispatch } from 'react-redux';
-import * as actions from '../../redux/search/search-actions';
-import { getContacts } from '../../redux/contacts/contacts-selectors';
+import { searchActions } from '../../redux/search';
+import { contactsSelectors } from '../../redux/contacts';
 
 const Search = () => {
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(contactsSelectors.getContacts);
   const dispatch = useDispatch();
-  const search = (e) => dispatch(actions.search(e.target.value));
+  const search = (e) => dispatch(searchActions.search(e.target.value));
   return (
     <SearchStyled>
       {contacts.length === 0 ? (

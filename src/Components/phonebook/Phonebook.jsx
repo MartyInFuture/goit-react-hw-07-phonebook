@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { PhonebookStyled } from './PhonebookStyled';
 import { v4 as uuidv4 } from 'uuid';
-import * as contactsOperations from '../../redux/contacts/contacts-operations';
+import { contactsOperations } from '../../redux/contacts';
 
 const Phonebook = () => {
   const [name, setName] = useState('');

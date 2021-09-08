@@ -1,7 +1,7 @@
 import { ContactStyled } from './ContactStyled';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import * as contactsOperations from '../../../redux/contacts/contacts-operations';
+import { contactsOperations } from '../../../redux/contacts';
 
 const Contact = ({ name, phone, id }) => {
   const dispatch = useDispatch();
