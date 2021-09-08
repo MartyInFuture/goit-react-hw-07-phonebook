@@ -1,0 +1,14 @@
+{
+  "contacts": [
+    {
+      "name": "user",
+      "phone": "123",
+      "id": "55897980-f949-47c5-bc5c-a3528cd7a0b6"
+    },
+    {
+      "name": "test",
+      "phone": "123",
+      "id": "0f673340-9e00-4ad1-92ca-44b73f7afedd"
+    }
+  ]
+}
