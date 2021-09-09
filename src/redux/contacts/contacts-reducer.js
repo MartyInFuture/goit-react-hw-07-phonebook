@@ -8,19 +8,24 @@ const contactsRemove = (state, { payload }) => {
 
 const items = createReducer([], {
   [fetchContacts.fulfilled]: (_, action) => action.payload,
-  [actions.add]: (state, action) => [...state, action.payload],
-  [actions.remove]: contactsRemove,
+  [actions.addSuccess]: (state, action) => [...state, action.payload],
+  [actions.removeSuccess]: contactsRemove,
 });
 
 const isLoading = createReducer(false, {
-  [fetchContacts.pending]: () => true,
-  [fetchContacts.fulfilled]: () => false,
-  [fetchContacts.rejected]: () => false,
+  [actions.addRequest]: () => true,
+  [actions.addSuccess]: () => false,
+  [actions.addError]: () => false,
+  [actions.removeRequest]: () => true,
+  [actions.removeSuccess]: () => false,
+  [actions.removeError]: () => false,
 });
 
 const error = createReducer(null, {
-  [fetchContacts.rejected]: (_, action) => action.payload,
-  [fetchContacts.pending]: () => null,
+  [actions.removeError]: (_, action) => action.payload,
+  [actions.removeRequest]: null,
+  [actions.addError]: (_, action) => action.payload,
+  [actions.addRequest]: () => null,
 });
 
 export default combineReducers({

@@ -11,21 +11,24 @@ export const fetchContacts = createAsyncThunk(
 );
 
 export const postContact = (body) => async (dispatch) => {
+  dispatch(actions.addRequest());
+
   try {
-    await axios.post('http://localhost:2015/contacts/', body).then((data) => {
-      dispatch(actions.add(data.data));
-    });
+    const contacts = await axios.post('http://localhost:2015/contacts/', body);
+    dispatch(actions.addSuccess(contacts.data));
   } catch (error) {
-    console.log(error);
+    dispatch(actions.addError(error));
   }
 };
 
 export const removeContact = (id) => async (dispatch) => {
+  dispatch(actions.removeRequest());
+
   try {
     await axios.delete(`http://localhost:2015/contacts/${id}`).then(() => {
-      dispatch(actions.remove(id));
+      dispatch(actions.removeSuccess(id));
     });
   } catch (error) {
-    console.log(error);
+    dispatch(actions.removeError(error));
   }
 };

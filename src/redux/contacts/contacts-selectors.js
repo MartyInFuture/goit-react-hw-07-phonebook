@@ -7,6 +7,7 @@ export const getContacts = (state) => {
 export const getFilteredContacts = createSelector(
   [getContacts, getSearch],
   (contacts, search) => {
+    console.log(contacts);
     return contacts.filter((contact) => contact.name.includes(search));
   }
 );
